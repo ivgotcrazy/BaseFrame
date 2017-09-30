@@ -44,7 +44,7 @@ bool ComFactoryImpl::Init(const char* com_path)
 	loader->Load(com_path, COM_ENTRY_NAME, &vec);
 
 	// Load com by export function address
-	for each(const IDynamicLoader::DynamicEntry& entry in vec)
+	for(auto& entry : vec)
 	{
 		std::cout << "Begin to load com from " << entry.lib_name << std::endl;
 

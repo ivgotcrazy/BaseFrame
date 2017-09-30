@@ -3,10 +3,10 @@
 ##==========================================================================
 
 # Main config.
-OUTPUT_LIBDIR   := ./
-OUTPUT_BINDIR   := ./
-GROUPNAME		:= base-frame
-PROJECTNAME 	:= base-frame
+OUTPUT_LIBDIR	:= ../../../
+OUTPUT_BINDIR	:= ../../../
+GROUPNAME	:= BaseFrame/bin/linux
+PROJECTNAME	:= baseframe
 
 # The pre-processor and compiler options.
 # Users can override those variables from the command line.
@@ -18,7 +18,7 @@ RELEASE_CXXFLAGS:= ${CXXFLAGS} -O2 -g -DNDEBUG
 
 # The options used in linking as well as in any direct use of ld.
 COMMON_LDFLAGS	:= -Wl,-z,defs,-Bsymbolic
-LDFLAGS   		+= $(COMMON_LDFLAGS)-shared
+LDFLAGS   	+= $(COMMON_LDFLAGS) -shared
 
 # The pre-processor and compiler options.
 ifeq (YES, ${DEBUG})
@@ -43,9 +43,9 @@ else
 endif
 
 # Include files.
-INCLUDEDIR  := 	-I ../../include \
-				-I ../../src/core \
-				-I ../../src/linux
+INCLUDEDIR  :=	-I ../../include \
+		-I ../../src/core \
+		-I ../../src/linux
 
 # The files will be excluded
 EXCLUDES  =  
@@ -56,7 +56,7 @@ SRCDIRS   = ../../src/core ../../src/linux
 
 # The target file name.
 ifeq (YES, ${DEBUG})
-    OUTPUT   = ${OUTPUT_BINDIR}${GROUPNAME}/lib${PROJECTNAME}D.so
+	OUTPUT   = ${OUTPUT_BINDIR}${GROUPNAME}/lib${PROJECTNAME}D.so
 else
 	OUTPUT   = ${OUTPUT_BINDIR}${GROUPNAME}/lib${PROJECTNAME}.so
 endif
