@@ -2,12 +2,16 @@
 
 #include <map>
 #include <functional>
+#include <string>
 
 #include "ComFactory.h"
 #include "Component.h"
 
 namespace bf {
 
+/***
+ * Implementation of component factory.
+ */
 class ComFactoryImpl : public IComFactory
 {
 public:
@@ -22,9 +26,9 @@ public:
 
 private:
 	typedef std::string CID; // class id
-	typedef std::map<CID, CreateComFunc> CMAP;
+	typedef std::map<CID, CreateComFunc> ComMAP;
 
-	CMAP m_creators;
+	ComMAP m_creators;
 };
 
 }

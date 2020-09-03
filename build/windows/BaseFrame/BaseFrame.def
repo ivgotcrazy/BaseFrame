@@ -1,0 +1,3 @@
+LIBRARY BaseFrame
+EXPORTS
+GetComFactory @1

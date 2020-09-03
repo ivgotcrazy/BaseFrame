@@ -7,6 +7,9 @@
 namespace bf
 {
 
+/**
+ * Responsible for loading dynamic link library 
+ */
 class IDynamicLoader
 {
 public:

@@ -21,18 +21,15 @@ void WinDynamicLoader::Load(const char* path, const char* entry_name, EntryVec* 
 	DllVec dll_files;
 	GetAllDllFiles(path, &dll_files);
 
-	for each (const std::string& dll_file in dll_files)
-	{
+	for (const std::string& dll_file : dll_files) {
 		HMODULE module = ::LoadLibraryA(dll_file.c_str());
-		if (module == NULL)
-		{
+		if (module == NULL) {
 			std::cout << "Failed to load library " << dll_file << std::endl;
 			continue;
 		}
 
 		void* func = ::GetProcAddress(module, entry_name);
-		if (!func)
-		{
+		if (!func) {
 			std::cout << "Failed to get " << entry_name 
 				<< "func from " << dll_file << std::endl;
 			continue;
@@ -53,8 +50,7 @@ void WinDynamicLoader::GetAllDllFiles(const char* com_path, DllVec* pdv)
 		return;
 
 	// file
-	if (!fs::is_directory(com_path))
-	{
+	if (!fs::is_directory(com_path)) {
 		if (fs::path(com_path).extension() == ".dll")
 			pdv->push_back(com_path);
 		return;
@@ -63,12 +59,14 @@ void WinDynamicLoader::GetAllDllFiles(const char* com_path, DllVec* pdv)
 	// directory
 	fs::directory_iterator begin_iter(com_path);
 	fs::directory_iterator end_iter;
-	for (auto iter = begin_iter; iter != end_iter; ++iter)
-	{
-		if (fs::is_directory(*iter))
+	for (auto iter = begin_iter; iter != end_iter; ++iter) {
+		if (fs::is_directory(*iter)) {
 			GetAllDllFiles(iter->path().string().c_str(), pdv);
-		else
+		} 
+		else {
 			if (iter->path().extension() == ".dll")
 				pdv->push_back(iter->path().string());
+		}
+			
 	}
 }
