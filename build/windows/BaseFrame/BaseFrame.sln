@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseFrame", "BaseFrame.vcxp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseFrameTest", "..\..\..\test\BaseFrameTest\BaseFrameTest.vcxproj", "{3DD4F395-C8B8-4084-89C9-F4011671872F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComponentTest", "..\..\..\test\ComponentTest\ComponentTest.vcxproj", "{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{3DD4F395-C8B8-4084-89C9-F4011671872F}.Release|x64.Build.0 = Release|x64
 		{3DD4F395-C8B8-4084-89C9-F4011671872F}.Release|x86.ActiveCfg = Release|Win32
 		{3DD4F395-C8B8-4084-89C9-F4011671872F}.Release|x86.Build.0 = Release|Win32
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Debug|x64.ActiveCfg = Debug|x64
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Debug|x64.Build.0 = Debug|x64
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Debug|x86.ActiveCfg = Debug|Win32
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Debug|x86.Build.0 = Debug|Win32
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Release|x64.ActiveCfg = Release|x64
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Release|x64.Build.0 = Release|x64
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Release|x86.ActiveCfg = Release|Win32
+		{64C1D193-4525-4C8E-A4DF-B7EAA1142A8F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

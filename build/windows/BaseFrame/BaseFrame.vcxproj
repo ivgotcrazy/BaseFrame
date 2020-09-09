@@ -132,10 +132,10 @@ copy /y $(OutDir)$(TargetName).lib $(ProjectDir)..\..\..\lib\windows</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\include\ComFactory.h" />
     <ClInclude Include="..\..\..\include\Component.h" />
     <ClInclude Include="..\..\..\include\IUnknown.h" />
     <ClInclude Include="..\..\..\include\ProxyUnknown.h" />
-    <ClInclude Include="..\..\..\src\core\ComFactory.h" />
     <ClInclude Include="..\..\..\src\core\ComFactoryImpl.h" />
     <ClInclude Include="..\..\..\src\core\IDynamicLoader.h" />
   </ItemGroup>

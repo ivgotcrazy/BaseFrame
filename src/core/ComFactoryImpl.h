@@ -22,7 +22,7 @@ public:
 
 	bool Init(const char* com_dir) override;
 
-	IUnknown* CreateComponent(IUnknown* outer, const char* cid, const char* iid) override;
+	IUnknown* CreateComponent(IUnknown* outer, const char* cid) override;
 
 private:
 	typedef std::string CID; // class id

@@ -51,8 +51,10 @@ void WinDynamicLoader::GetAllDllFiles(const char* com_path, DllVec* pdv)
 
 	// file
 	if (!fs::is_directory(com_path)) {
-		if (fs::path(com_path).extension() == ".dll")
+		if (fs::path(com_path).extension() == ".dll") {
 			pdv->push_back(com_path);
+			std::cout << "Add dll file: " << com_path << std::endl;
+		}
 		return;
 	}
 
@@ -64,8 +66,10 @@ void WinDynamicLoader::GetAllDllFiles(const char* com_path, DllVec* pdv)
 			GetAllDllFiles(iter->path().string().c_str(), pdv);
 		} 
 		else {
-			if (iter->path().extension() == ".dll")
+			if (iter->path().extension() == ".dll") {
 				pdv->push_back(iter->path().string());
+				std::cout << "Add dll file: " << iter->path().string() << std::endl;
+			}
 		}
 			
 	}

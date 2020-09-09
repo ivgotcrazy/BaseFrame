@@ -29,7 +29,6 @@ IComFactory* ComFactoryImpl::GetInstance()
 	return (&instance);
 }
 
-
 bool ComFactoryImpl::Init(const char* com_path)
 {
 	IDynamicLoader* loader = nullptr;
@@ -57,7 +56,7 @@ bool ComFactoryImpl::Init(const char* com_path)
 
 		// none!!!
 		if (count == 0) {
-			std::cout << "Get no com objects"<< std::endl;
+			std::cout << "Get none component objects"<< std::endl;
 			continue;
 		}
 
@@ -68,35 +67,27 @@ bool ComFactoryImpl::Init(const char* com_path)
 				std::cout << "COM " << object->com_cid << "exists." << std::endl;
 				continue;
 			}
-
 			m_creators.insert(std::make_pair(object->com_cid, object->com_create));
-
-			std::cout << "Get one com object" << std::endl;
+			std::cout << "Get one component object" << std::endl;
 		}
 	}
 
 	return true;
 }
 
-bf::IUnknown* ComFactoryImpl::CreateComponent(IUnknown* outer, const char* cid, const char* iid)
+bf::IUnknown* ComFactoryImpl::CreateComponent(IUnknown* outer, const char* cid)
 {
 	for (auto iter = m_creators.begin(); iter != m_creators.end(); iter++) {
 		if (iter->first == cid) {
-			IUnknown* com = (iter->second)(this, outer);
+			IUnknown* com = (iter->second)(outer);
 			if (!com) {
-				printf("Failed to create com %s.\n", iid);
+				printf("Failed to create com %s.\n", cid);
 				return nullptr;
 			}
-
-			IUnknown* itf = static_cast<IUnknown*>(com->QueryInterface(iid));
-			if (!itf) {
-				printf("Failed to query interface %s.\n", iid);
-			}
-
-			return itf;
+			return com;
 		}
 	}
 
-	printf("Failed to find com %s.\n", cid);
+	printf("Cannot find component %s.\n", cid);
 	return nullptr;
 }

@@ -10,7 +10,9 @@ namespace bf
 class IComFactory;
 
 // Prototype of method for creating component.
-typedef bf::IUnknown* (*CreateComFunc)(IComFactory*, bf::IUnknown*);
+typedef IUnknown* (*CreateComFunc)(IUnknown*);
+
+//typedef bf::IUnknown* (*CreateComFunc)(IComFactory*, bf::IUnknown*);
 
 // Every component has a name, an ID, and a method to create component object.
 struct ComObject
